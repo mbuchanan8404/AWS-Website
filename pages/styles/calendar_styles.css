@@ -1,0 +1,392 @@
+@charset "UTF-8";
+
+:root{
+  --logowidth: 250px;
+  --headerheight:60px;
+  --header-color: #1d1d1d;
+  --background-color: #ffffff; 
+}
+
+
+html, body{
+  background-color: #ffffff;
+  margin: auto;
+}
+
+
+#logo{
+    font-family: Arial;
+    font-size:2em;
+    margin:auto;
+    color: #008d6c;
+}
+
+
+.rowNav{
+  display: flex;
+  align-items:center;
+  gap:40px;
+  position: fixed;
+  width: 100%;
+  grid-area: 'header';
+  margin-bottom: 50px;
+  height: 60px !important;
+  background-color:#1d1d1d !important;
+  z-index: 1;
+}
+
+
+.rowNav:after{
+    content:"";
+    vertical-align: middle;
+    clear:both;
+}
+  
+.column{
+  display:flex;
+  flex-direction:row;
+  align-items:stretch;
+}
+  
+.one{
+  width: var(--logowidth);
+  justify-content:center;
+}
+  
+.two{
+  width:50vw;
+  color: white;  
+  gap:0 20px;
+}
+ 
+.three{
+  justify-content: flex-end;
+  flex: 1;
+}
+  
+  
+.column > a::before{
+  font-family:FontAwesome;
+  margin-right: 2px;
+}
+
+#home::before{
+  content: "\f015";
+}
+
+#registration::before{
+  content: "\f0c0";
+}
+
+#calendar::before{
+  content: "\f133";
+}
+
+#events::before{
+  content: "\f022";
+}
+
+#account::before{
+  content: "\f007";
+}
+
+#dashboard::before{
+  content: "\f201";
+}
+
+#logout::before{
+  content: "\f08b";
+}
+
+#logout:hover:after{
+  content:"Logout";
+}
+  
+main {
+  background-color: var(--background-color);
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  overflow-x: scroll;
+}
+
+a{
+  font-size:1.5em;
+  color: #ffffff;
+  text-decoration: none;
+  content:none;
+  
+}
+a:hover{
+  color: #008d6c;
+  text-decoration:none;
+}
+
+#logout:hover:after{
+  content:"Logout";
+}
+
+.btn {
+  width: 80px;
+  margin: 0px 25px 0px 0px;
+}
+
+.hideCol {
+  display: none;
+}
+
+.lastMonthsDays, .nextMonthsDays{
+    background-color: rgba(228, 224, 224, 0.533);
+    color: rgb(133, 133, 133);
+}
+
+.lastMonthsDays:hover, .nextMonthsDays:hover{
+  background-color: rgba(228, 224, 224, 0.533);
+  cursor:default;
+}
+
+#dayName {
+    font-size: 175%;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+
+.special-day{
+    background-color: rgb(200, 212, 251);
+    font-weight: bold;
+}
+
+.special-day:hover{
+  background-color: rgba(200, 212, 251, 0.525);
+}
+
+.event{
+    background-color: #198754;
+    font-weight: bold;
+}
+
+.event:hover{
+  background-color: #1987548b;
+}
+
+#calendarTable td{
+  text-align: center;
+  border: 2px solid whitesmoke;
+  font-weight: bold;
+}
+
+#calendarTable tr{
+  text-align: center;
+  border: 3px solid whitesmoke;
+  font-weight: bold;
+}
+
+#calendarTable th{
+  background-color: whitesmoke;
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: large;
+  box-shadow: 4px 4px 4px 4px #999;
+  border-style: solid;
+  text-shadow: 1px 1px rgba(0, 44, 44, 0.344);
+  border: none;
+}
+
+
+
+td{
+  font-family: sans-serif;
+  background-color: whitesmoke;
+  font-size: x-small;
+  text-overflow: ellipsis;
+  box-shadow: 3px 3px 8px 4px #b0b0b0;
+}
+
+#previous, #next{
+  background-color: transparent;
+  color: white;
+  width: 33%;
+  font-size: large;
+  border: none;
+}
+
+#captionDate{
+  background-color: transparent;
+  border: none;
+  color: whitesmoke;
+  width: 33%;
+}
+
+#previous:hover, #next:hover{
+  color: #157347;
+}
+
+#calendarTable{
+  margin-right: 2%;
+  margin-left: 8%;
+  width: 75%;
+  height: 85%;
+  table-layout: fixed;
+  background-color: whitesmoke;
+}
+
+caption {
+  font-size: 150%;
+  background-color:  #1d1d1d;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 55px;
+  box-shadow: 4px 4px 4px 4px #999;
+  text-align: center;
+  
+  border-color: whitesmoke;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+table{
+  caption-side: top;
+  box-shadow: 4px 4px 4px 4px #999;
+  table-layout: fixed;
+  color: #1d1d1d;
+}
+
+.foot {
+  background-color: var(--header-color);
+  width: 100%;
+  color: #008d6c;
+  height: 25px;
+  bottom: 0;
+  position: fixed;
+}
+
+td:hover{
+  background-color: rgba(245, 245, 245, 0.492);
+  cursor: pointer;
+}
+
+.selectedDay{
+  background-color: rgba(255, 154, 154, 0.51);
+}
+
+.selectedDay:hover{
+  background-color: rgb(255, 154, 154);
+}
+
+#mainDiv{
+  display: flex;
+  height: 100vh;
+  padding-top: 10vh;
+  padding-bottom: 5vh;
+}
+
+#hourlyDisplayTableContainer{
+  overflow-y: scroll;
+  width: 30%;
+  margin-right: 8%;
+  margin-left: 3%;
+  padding-bottom: 2px;
+  box-shadow: 4px 4px 4px 4px #999;
+  background-color: whitesmoke;
+  height: 100%;
+  border-left: 5px solid rgb(215, 215, 215);;
+  border-top: 5px solid rgb(215, 215, 215);;
+  border-right: 5px solid rgb(215, 215, 215);
+  border-bottom: 5px solid rgb(215, 215, 215);
+  table-layout: fixed;
+  height: 93.5%;
+  border-radius: 12px;
+}
+
+#hourlyDisplayTable{
+  width: 100%;
+  background-color: whitesmoke;
+  margin: 1.5px; 
+  table-layout: fixed;
+}
+
+#hourlyDisplayTable td {
+  height: 28px;
+  width: 100%;
+  box-shadow: none;
+  border-radius: 20px;
+}
+
+#hourlyDisplayTable th {
+  background-color: whitesmoke;
+  text-shadow: 1px 1px rgba(0, 44, 44, 0.344);
+  height: 40px;
+  width: 25%;
+}
+
+#hourlyDisplayTable td:hover {
+  cursor:default;
+}
+
+#hourlyDisplayTable tr {
+  border-top:#008d6c8e;
+  border-bottom: #008d6c;
+  border-style: solid;
+  overflow: scroll;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  }
+
+.timeLabel{
+  text-align: left;
+}
+
+.eventInTimeSheet{
+  overflow: scroll;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  border-radius: 20px;
+  background-color: #008d6c;
+  border-color: transparent;
+  border-style: solid;
+  box-shadow: 4px 4px 4px 4px rgba(153, 153, 153, 0.689);
+  justify-content: center; /* align horizontal */
+  padding-top: 20px;
+  padding-bottom: 12px;
+}
+
+.eventInTimeSheet{
+  background-color: #198754;
+}
+
+.eventInTimeSheet:hover{
+  background-color: #198754be;
+}
+
+.eventInTimeSheet::-webkit-scrollbar{
+  display: none;
+}
+
+#hourlyDisplayTableContainer::-webkit-scrollbar{
+  display: none;
+}
+
+.calendarDayNumber{
+  padding-left: 12px;
+  padding-top: 10px;
+  text-align: left;
+  height: 35%;
+  width: 100%;
+  font-size: medium;
+  color:#1d1d1d;
+}
+
+.calendarDayText{
+  padding: 5px;
+  text-align: center;
+  height: 65%;
+  width: 100%;
+  overflow:auto;
+  margin-bottom: 5%;
+  white-space: pre;;
+}
+
+.calendarDayText::-webkit-scrollbar{
+  display: none;
+}

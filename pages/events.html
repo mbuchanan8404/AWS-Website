@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" 
+  rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles/events_styles.css" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  
+  <title>DojoStream - Event Manager</title>
+</head>
+<body onload = "onLoadPage()">
+  <header class="nav">
+    <div class = "rowNav">
+      <div class = "column one">
+          <h1 id = "logo" class = "dojostream">DojoStream</h1>
+      </div>
+
+      <!--DYNAMIC HEADER-->
+      <div class = "column two" id = "col-two"></div>
+
+      <div class = "column three">
+        <input class="btn btn-success btn-sm" type = "button" onclick = "onLogout()" value = "Logout"/>
+      </div>
+    </div>
+  </header>
+  
+  <!--Main section of the html page-->
+  <main>
+    <div id ="eventForm"></div>
+    <div id="tablesContainer">
+      <div id="eventList"></div>
+      <div id="userList"></div>
+    </div>
+  </main>
+
+  <footer >
+    <div class="foot">&copy DojoStream </div>
+  </footer>
+
+  <script type = "module" src = "../javascript-files/front-end/events_frontend.js"></script>
+  <script type = "module" src = "../javascript-files/front-end/logout_frontend.js"></script>
+
+</body>
+</html>

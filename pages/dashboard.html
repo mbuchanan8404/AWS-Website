@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" 
+   rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="stylesheet" href="./styles/dashboard.css" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <title>DojoStream - Dashboard</title>
+</head>
+<body onload = "onLoadPage()">
+
+  <header class="nav">
+    <div class = "rowNav">
+      <div class = "column one">
+          <h1 id = "logo" class = "dojostream">DojoStream</h1>
+      </div>
+
+      <!--DYNAMIC HEADER-->
+      <div class = "column two" id = "col-two"></div>
+
+      <div class = "column three">
+        <input class="btn btn-success btn-sm" type = "button" onclick = "onLogout()" value = "Logout"/>
+      </div>
+    </div>
+  </header>
+  
+  <!--Main section of the html page-->
+  <main>
+      <div class="container">
+        <div class="page-header">
+          <h3>DojoStream Dashboard</h3> 
+        </div>
+      </div>
+
+      <div class=" d-none d-lg-block d-xl-block" >
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="card">
+              <img src="./img/dash5.jpg" class="card-img-top" id="imgCard1" alt="">
+              <p class="card-header">Member Count</p>
+              <div class="card-body">
+                <p class="card-text"><div id="totalMem">Total Members:</div> </p>
+                <p class="card-text"><div id="admin">Adminsitrators: </div></p>
+                <p class="card-text"><div id="standard">Standard Users: </div></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card">
+              <img src="./img/dash2.jpg" class="card-img-top"  id="imgCard2" alt="">
+              <p class="card-header">Member Belt Count</p>
+              <div class="card-body">
+               <p class="card-text">
+                <div class="row" >
+                  <div class="col-sm-5 belt-white" id="white">White : </div>
+                  <div class="col-sm-2" > </div>
+                  <div class="col-sm-5 belt-yellow" id="yellow">Yellow : </div>
+                </div>
+                </p>
+                <p class="card-text">
+                <div class="row" >
+                  <div class="col-sm-5 belt-green" id="green">Green : </div>
+                  <div class="col-sm-2" > </div>
+                  <div class="col-sm-5 belt-blue" id="blue">Blue : </div>
+                </div>
+              </p>
+              <p class="card-text">
+                <div class="row" >
+                  <div class="col-sm-5 belt-red" id="red">Red : </div>
+                  <div class="col-sm-2" > </div>
+                  <div class="col-sm-5 belt-black" id="black">Black : </div>
+                </div>
+              </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card">
+              <img src="./img/dash3.jpg" class="card-img-top"  id="imgCard3" alt="">
+              <p class="card-header">Events</p>
+              <div class="card-body">
+                <p class="card-text"><div id="event1">...</div></p>
+                <p class="card-text"><div id="event2">... </div></p>
+                <p class="card-text"><div id="event3">... </div></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      <div class="container searchBox">
+          <table class="table table-sm " id="tableUser" >
+            <thead class="thead-dark">
+              <tr >
+                <th scope="col">User Login</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Address</th>
+                <th scope="col">City</th>
+                <th scope="col">State</th>
+                <th scope="col">Phone</th>
+              </tr>
+            </thead>
+    
+            <tbody>
+    
+    
+            </tbody>
+    
+          </table>
+          </div>
+    
+        </div>
+  </main>
+
+  <footer >
+    <div class="foot">&copy DojoStream </div>
+  </footer>
+  
+  <script type = "module" src = "../javascript-files/front-end/dashboard_frontend.js"></script>
+  <script type = "module" src = "../javascript-files/front-end/logout_frontend.js"></script>
+
+</body>
+</html>

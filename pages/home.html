@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta content = "text/html"charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" 
+  rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <!-- JavaScript Bundle with Popper -->
+  <link rel="stylesheet" href="./styles/home.css" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+
+  <title>DojoStream - Home</title>
+</head>
+<body onload = "onLoadPage()">
+  <header class="nav">
+    <div class = "rowNav">
+      <div class = "column one">
+          <h1 id = "logo" class = "dojostream">DojoStream</h1>
+      </div>
+
+      <!--DYNAMIC HEADER-->
+      <div class = "column two" id = "col-two"></div>
+
+      <div class = "column three">
+        <input class="btn btn-success btn-sm" type = "button" onclick = "onLogout()" value = "Logout"/>
+      </div>
+    </div>
+  </header>
+  <main>
+
+    <div class="shadow p-3 mb-5 bg-body rounded ">
+
+      <div class="d-flex justify-content-center display-6">
+        Welcome To DojoStream
+      </div>
+
+      <div class="d-flex justify-content-center ">
+      <div id="carouselDojo" class="carousel slide " data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="./img/home1.jpg" class="d-block w-100" alt="image1">
+          </div>
+          <div class="carousel-item">
+            <img src="./img/home2.jpg" class="d-block w-100" alt="image2">
+          </div>
+          <div class="carousel-item">
+            <img src="./img/home3.jpg" class="d-block w-100" alt="image3">
+          </div>
+          <div class="carousel-item">
+            <img src="./img/home4.jpg" class="d-block w-100" alt="image4">
+          </div>
+          <div class="carousel-item">
+            <img src="./img/home5.jpg" class="d-block w-100" alt="image5">
+          </div>
+
+        </div>
+
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselDojo" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselDojo" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        </div>
+
+        <div class="d-flex justify-content-center mt-4">
+          <blockquote class="blockquote">DojoStream is a customer relationship management software designed to help local martial arts dojos manage and actively engage with their members.</blockquote>
+        </div>
+  
+
+    </div>
+
+  </main>
+
+  <footer >
+    <div class="foot">&copy DojoStream </div>
+  </footer>
+
+  
+  <script type = "module" src = "../javascript-files/front-end/home_frontend.js"></script>
+  <script type = "module" src = "../javascript-files/front-end/logout_frontend.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+</body>
+</html>

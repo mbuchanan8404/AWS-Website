@@ -1,0 +1,312 @@
+@charset "UTF-8";
+
+:root{
+    --logowidth: 250px;
+    --headerheight:60px;
+    --header-color: #1d1d1d;
+    --background-color: #ffffff; 
+}
+
+html, body{
+    background-color: #ffffff;
+}
+
+#logo{
+    font-family: Arial;
+    font-size:2em;
+    margin:auto;
+    color: #008d6c;
+}
+
+.foot {
+    background-color: var(--header-color);
+    width: 100%;
+    color: #008d6c;
+    height: 25px;
+    bottom: 0;
+    position: fixed;
+    grid-area: 'footer';
+}
+
+
+.rowNav{
+    display: flex;
+    align-items:center;
+    gap:40px;
+    position: fixed;
+    width: 100%;
+    grid-area: 'header';
+    margin-bottom: 50px;
+    height: 60px !important;
+    background-color:#1d1d1d !important;
+    z-index: 1;
+}
+
+.rowNav:after{
+    content:"";
+    vertical-align: middle;
+    clear:both;
+}
+
+.column{
+    display:flex;
+    flex-direction:row;
+    align-items:stretch;
+}
+
+.one{
+    width: var(--logowidth);
+    justify-content:center;
+}
+
+.two{
+    width:75vw;
+    color: white;
+    gap:0 20px;
+}
+
+.three{
+    justify-content: flex-end;
+    flex: 1;
+}
+
+.column > a::before{
+    font-family:FontAwesome;
+    margin-right: 2px;
+}
+
+#home::before{
+    content: "\f015";
+}
+
+#registration::before{
+    content: "\f0c0";
+}
+
+#calendar::before{
+    content: "\f133";
+}
+
+#events::before{
+    content: "\f022";
+}
+#account::before{
+    content: "\f007";
+}
+#dashboard::before{
+    content: "\f201";
+}
+
+#logout::before{
+    content: "\f08b";
+}
+
+main {
+    background-color: var(--background-color);
+    padding-top: 20px;
+    margin-top: 50px;
+    display: grid;
+    grid-template-areas:
+        'header header'
+        'eventForm tableContainer'
+        'footer footer';
+    gap: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    width: 100%;
+    height: 100%;
+}
+
+a{
+    font-size:1.5em;
+    color: #ffffff;
+    text-decoration: none;
+    content:none;
+}
+
+a:hover{
+    color: #008d6c;
+    text-decoration:none;
+}
+
+#logout:hover:after{
+    content:"Logout";
+}
+
+table{
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+tr {
+    border-bottom: 1px solid #ccc;
+}
+
+tr:hover{
+    background-color: #008d6c63;
+    cursor: pointer;
+    box-shadow: 4px 4px 4px -2px #999 inset;
+}
+
+
+td {
+    padding: .625em;
+    text-align: left;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+    overflow: hidden;
+    font-family: sans-serif;
+}
+
+  
+th {
+    background: #1d1d1d;
+    color: #fff;
+    padding: .625em;
+    font-size: .85em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    text-align: left;
+    cursor: pointer;
+    position: sticky;
+    top: 0;
+}
+
+#eventList{
+    overflow: auto;
+    font-family: sans-serif;
+    border-style: solid;
+    border-width: thin;
+    box-shadow: 3px 3px 3px 3px #999;
+    height: 41vh;
+    border:#1d1d1d;
+    border-style: ridge;
+    border-collapse: collapse;
+    border-radius: 7px;
+}
+
+#eventList::-webkit-scrollbar{
+    display: none;
+  }
+
+.selectedEventRow{
+    background-color: #008d6c63;
+    box-shadow: 4px 4px 4px -2px rgb(208, 208, 208) inset;
+}
+
+.selectedEventRow:hover{
+    background-color: #008d6c;
+}
+
+.selectedUser{
+    background-color: #008d6c63;
+    box-shadow: 4px 4px 4px -2px rgb(208, 208, 208) inset;
+}
+
+.selectedUser:hover{
+    background-color: #008d6c;
+}
+
+#userList{
+    overflow: auto;
+    font-family: sans-serif;
+    border-style: solid;
+    border-width: thin;
+    box-shadow: 3px 3px 3px 3px #999;
+    height: 41vh;
+    margin-top: 30px;
+    border:#1d1d1d;
+    border-style: ridge;
+    border-collapse: collapse;
+    border-radius: 7px;
+}
+
+#userList::-webkit-scrollbar{
+    display: none;
+}
+
+#eventForm{
+    grid-area: 'eventForm';
+    border-style: solid;
+    border-width: thin;
+    box-shadow: 3px 3px 3px 3px #999;
+    padding-top: 1%;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-bottom: 3%;
+    height: auto;
+    width: 400px;
+    border:#1d1d1d;
+    border-style: ridge;
+    border-collapse: collapse;
+    background-color: whitesmoke;
+    height: 100%;
+    border-radius: 7px;
+}
+
+#tablesContainer{
+    grid-area: 'tableContainer';
+}
+
+.userSortHeader, .userCheckAll, .eventSortHeader{
+    color: #008d6c;
+}
+
+label, textarea{
+    display: block;
+    font-family: sans-serif;
+}
+
+th:hover{
+    color: #008d6c;
+}
+
+label{
+    font-weight: 200;
+}
+
+.check{
+    cursor: pointer;
+    background-color: #008d6c;
+}
+
+button{
+    background-color:#008d6c;
+    min-height: 35px;
+    width: 75px;
+    border: none;
+    color: white;
+    font-size: 0.875rem;
+    border-radius: 0.25rem;
+    font-weight: 400;
+    font-family: sans-serif;
+}
+
+button:hover{
+    background-color: #008d6ca6;
+}
+
+input{
+    width: 100%;
+}
+
+textarea{
+    width: 100%;
+}
+
+#formButtons{
+    margin-left: 10px;
+}
+
+#createEventButton, #clearEventFormButton, #deleteEventButton, #modifyEventButton{
+    width: 75px;
+    margin-left: 10px;
+    margin-top: 10px;
+    box-shadow: 4px 4px 4px -2px #999;
+    background-color: #198754;
+}
+
+#createEventButton:hover, #clearEventFormButton:hover, #deleteEventButton:hover, #modifyEventButton:hover{
+    background-color: rgb(0, 121, 88);
+}

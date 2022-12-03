@@ -1,0 +1,199 @@
+@charset "UTF-8";
+
+:root{
+  --logowidth: 250px;
+  --headerheight:60px;
+  --header-color: #1d1d1d;
+  --background-color: #ffffff; 
+}
+
+html, body{
+  background-color: #ffffff;
+  margin: auto;
+  height:100%;
+}
+
+#logo{
+font-family: Arial;
+font-size:2em;
+margin:auto;
+color: #008d6c;
+}
+
+.rowNav{
+  display: flex;
+  align-items:center;
+  gap:40px;
+  position: fixed;
+  width: 100%;
+  grid-area: 'header';
+  margin-bottom: 50px;
+  height: 60px !important;
+  background-color:#1d1d1d !important;
+  z-index: 1;
+}
+.rowNav:after{
+  content:"";
+  vertical-align: middle;
+  clear:both;
+}
+
+
+.column{
+  display:flex;
+  flex-direction:row;
+  align-items:stretch;
+}
+
+.one{
+  width: var(--logowidth);
+  justify-content:center;
+}
+
+.two{
+  width:50vw;
+  color: white;
+  
+  gap:0 20px;
+}
+.three{
+  justify-content: flex-end;
+  flex: 1;
+}
+
+
+.column > a::before{
+  font-family:FontAwesome;
+  margin-right: 2px;
+}
+#home::before{
+  content: "\f015";
+}
+
+#registration::before{
+  content: "\f0c0";
+}
+
+#calendar::before{
+  content: "\f133";
+}
+
+#events::before{
+  content: "\f022";
+}
+#account::before{
+  content: "\f007";
+}
+#dashboard::before{
+  content: "\f201";
+}
+
+#logout::before{
+  content: "\f08b";
+}
+
+.foot {
+  background-color: var(--header-color);
+  width: 100%;
+  color: #008d6c;
+  height: 25px;
+  bottom: 0;
+  position: fixed;
+}
+
+main {
+    background-color: var(--background-color);
+    margin: auto;
+    width: 75%;
+    padding-top: 20px;
+    margin-top: 75px;
+    padding-bottom: 50px;
+}
+  
+a{
+  font-size:1.5em;
+  color: #ffffff;
+  text-decoration: none;
+
+  content:none;
+}
+a:hover{
+  color: #008d6c;
+  text-decoration:none;
+}
+.searchBox{
+  height: 200px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: lightgrey;
+  border-width: thin;
+  height: 250px;
+  overflow: auto;
+}
+
+#logout:hover:after{
+    content:"Logout";
+}
+
+
+  .btn {
+  width: 80px;
+  margin: 0px 25px 0px 0px;
+  }
+  
+   .belt-yellow {
+    background-color: yellow;
+    border-radius: 10px;
+    border-width: thin;
+    text-align: center;
+  }
+  .belt-white {
+    background-color: white;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: thin;
+    text-align: center;
+  }
+  .belt-green {
+    background-color: green;
+    border-radius: 10px;
+    color: white;
+    border-width: thin;
+    text-align: center;
+  }
+  .belt-blue   {
+    background-color: blue;
+    border-radius: 10px;
+    border-width: thin;
+    text-align: center;
+    color: white;
+  }
+  .belt-red {
+    background-color: red;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+  }
+  .belt-black {
+    background-color: black;
+    color:white;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+.card   {
+    margin: 25px;
+}
+
+h3{
+  margin-left: 25px;
+}
+
+.searchBox {
+  margin-top: 25px;
+}
+
+.users{
+  margin-top: 25px;
+}
+

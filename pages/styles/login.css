@@ -1,0 +1,62 @@
+:root{
+    --login-box-color: #65acc8;
+    --background-color: #868686; 
+}
+
+html,body{
+    position:relative;
+    background: var(--background-color);
+    height:100%;
+    margin:auto;
+}
+
+.flex-container{
+    height:100%;
+    padding:0;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+}
+
+
+
+form{
+    border: 2px #000000 solid;
+    background: var(--login-box-color);
+    position:relative;
+    padding: 60px;
+    border-radius: 30px;
+    font-family: calibri;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+p{
+    font-size:24px;
+    margin: 0px;
+}
+
+input[type=text],input[type=password] {
+    width: 200px;
+    padding: 6px 10px;
+    margin: 4px 0;
+    box-sizing: border-box;
+    
+}  
+button {
+    background-color: #103583;
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    border-width: 1px;
+    display:inline;
+}
+

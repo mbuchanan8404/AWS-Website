@@ -1,0 +1,166 @@
+@charset "UTF-8";
+
+:root{
+    --logowidth: 250px;
+    --headerheight:90px;
+    --header-color: #65acc8;
+    --background-color: #868686; 
+}
+
+html, body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #0e1035;
+    overflow: hidden;
+    margin: auto;
+    height:100%;
+}
+
+header{
+  position: relative;
+  width: 100vw;
+  height: var(--headerheight);
+  background-color: var(--header-color);
+  padding:20px 0px;
+}
+
+#logo{
+  font-family: Arial;
+  font-size:2em;
+  margin:auto;
+}
+
+.row{
+    height: var(--headerheight);
+    display:flex;
+    align-items:center;
+    gap:40px;
+}
+
+.column{
+    position: relative;
+    /*all header elements will be in a flex box*/
+    display:flex;
+    flex-direction:row;
+    align-items:stretch;
+}
+
+.one{
+    width: var(--logowidth);
+    justify-content:center;
+}
+
+/*BY DEFAULT, EVERYTHING WILL BE DISPLAYED AS NONE. UPDATED THROUGH JAVASCRIPT*/
+.two{
+    background-color: aqua;
+    width:50vw;
+    flex-wrap: wrap;
+    gap:0 30px;
+}
+.three{
+    justify-content: flex-end;
+    flex: 1;
+}
+
+
+.column > a::before{
+    font-family:FontAwesome;
+    margin-right: 2px;
+}
+
+#home::before{
+    content: "\f015";
+}
+
+#calendar::before{
+    content: "\f133";
+}
+
+#account::before{
+    content: "\f007";
+}
+#dashboard::before{
+    content: "\f0c9";
+}
+
+#logout::before{
+    content: "";
+}
+
+.row:after{
+    content:"";
+    vertical-align: middle;
+    clear:both;
+}
+
+main h1{
+    margin-top:0px;
+    padding:10px;
+}
+
+main {
+    background-color: var(--background-color);
+    min-height: 85vh;
+    height:100vh;
+    padding:0;
+    margin:0;
+}
+  
+a{
+    font-size:1.5em;
+    color: #000000;
+    text-decoration: none;
+
+    content:none;
+}
+a:hover{
+    color: #ffffff;
+    text-decoration:none;
+}
+
+
+input {
+    border-radius: 5px;
+    border-width: 1px;
+  }
+  
+  input[type=text] {
+    width: 250px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    
+  }
+  
+  select {
+    width: 250px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border-width: 1px;
+    
+  }
+  
+  input[type=button], input[type=submit], input[type=reset] {
+    background-color: #103583;
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  
+  button {
+    background-color: #103583;
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    border-width: 1px;
+  }
+
+  

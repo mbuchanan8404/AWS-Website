@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="pages/styles/login.css" type="text/css">
+  <script type = "module" src = "../javascript-files/front-end/login_frontend.js"></script>
+  <title>DojoStream</title>
+</head>
+
+<body>
+  <div class = "flex-container">
+    <form action = "/login" method = "post" class = "input-user">
+      <p>Welcome to DojoStream</p>
+        <div class = "input">Username: <input name = "User_Login" id = "User_Login" type = "text" visibility = "hidden"></input></div>
+        <div class = "input">Password: <input name = "User_Password" id = "User_Password" type = "password"></input></div>
+        <div class = "flex-container">
+          <div class = "input-button"> <button value = "submit" >Submit</button></div>
+          <div class = "input-button"> <button value = "submit" onclick = "register()">Register</button></div>
+        </div>
+      </form>
+  </div>
+</body>
+
+</html>

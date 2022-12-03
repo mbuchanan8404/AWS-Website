@@ -1,0 +1,45 @@
+{
+  "name": "dojostreamtest",
+  "type": "commonjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "javascript-files/routing-services/pagerouting.js",
+  "scripts": {
+    "start": "nodemon javascript-files/routing-services/pagerouting.js",
+    "dev": "nodemon --experimental-specifier-resolution=node javascript-files/routing-services/pagerouting.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mbuchanan8404/AWS-Website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ebeck9/dojostreamtest/issues"
+  },
+  "homepage": "https://github.com/ebeck9/dojostreamtest#readme",
+  "dependencies": {
+    "aes-js": "^3.1.2",
+    "aws-sdk": "^2.1240.0",
+    "body-parser": "^1.20.1",
+    "cookie-parser": "^1.4.6",
+    "cookie-session": "^2.0.0",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "mongodb": "^4.10.0"
+  },
+  "nodemonConfig": {
+    "restartable": "rs",
+    "delay": 2500,
+    "env": {
+      "PORT": 8080,
+      "dbUserName": "dojostreamadmin",
+      "dbPassword": "UIS10922"
+    }
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3",
+    "nodemon": "^2.0.20"
+  }
+}
