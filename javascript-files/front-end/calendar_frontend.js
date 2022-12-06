@@ -18,6 +18,10 @@ import {displayHeaderElements} from './handler_frontend.js';
 import {logout} from './logout_frontend.js';
 
 
+/* Store the zoom factor for the hourly display */
+var zoomFactor = 15;
+
+
 /* Month currently displayed by the calendar */
 var displayMonth = new Date().getMonth();
 
@@ -94,6 +98,7 @@ async function getEvents() {
     const res = await fetch(pageURL,{method:'GET'});
     var result = await res.json();
     events.push(...result.Items);
+    //console.log(events);
 }
 
 
@@ -405,33 +410,39 @@ function buildHourlyDisplay() {
     // Start building the hourly display for the selected day
     // First just build a time sheet
     var dynamicHourlyDisplay = '<table id="hourlyDisplayTable"><tbody>';
-    for(var i = 0; i < 24; i++) {
-        var hour = '';
-        var meridian = '';
-        if((i % 12) == 0) {
-            hour = '12';   
-        }
-        else {
-            if((i % 12) < 10) {
-                hour = '0' + (i % 12);
+    for(let i = 0; i < 1440; i = i + zoomFactor) {
+            let hour = '';
+            let meridian = '';
+            if(i < 60 || (i >= 720 && i < 780)) {
+                hour = '12';   
             }
             else {
-                hour = i % 12;
+                if(((i >= 60) && (i < 660)) || ((i >= 780) && (i < 1440))) {
+                    hour = '0' + (Math.floor(i / 60) % 12);
+                }
+                else {
+                    hour = Math.floor(i / 60);
+                }
             }
-        }
-        if(i < 12) {
-            meridian = ' AM';
-        }
-        else {
+            let minute = '';
+            if((i % 60) < 10) {
+                minute = '0' + (i % 60);
+            }
+            else {
+                minute = i % 60;
+            }
+
+            if(i < 720) {
+                meridian = ' AM';
+            }
+            else {
             meridian = ' PM';
-        }
-        dynamicHourlyDisplay += '<tr id="' + hour + ':00' + meridian + '"><th class="timeLabel">'; // give the row an id based on time
-        dynamicHourlyDisplay += hour + ':00' + meridian;
-        dynamicHourlyDisplay += '</th></tr>';
-        for(var j = 1; j <= 1; j++) {
-            dynamicHourlyDisplay += '<tr id="' + hour + ':' + (j * 30) + meridian + '"><th class="timeLabel">'; // give the row an id based on time
+            }
+            dynamicHourlyDisplay += '<tr id="' + hour + ':' + minute + meridian + '"><th class="timeLabel">'; // give the row an id based on time
+            if(i % 60 == 0){
+                dynamicHourlyDisplay += hour + ':' + minute + meridian;
+            }
             dynamicHourlyDisplay += '</th></tr>';
-        }
     }
     dynamicHourlyDisplay += '</tbody></table>';
     
@@ -453,8 +464,8 @@ function buildHourlyDisplay() {
             if(eventsForTheDay[j] != '') {
                 // To display multiple events for the same time frame, we need to make sure we don't overwrite into the same <td>
                 // Get the length of the event we're going to write to the time sheet
-                var eventLength = differenceBetweenTimeStamps(convertTimeStampBack(eventsForTheDay[j].split('<br>')[2]), 
-                                    convertTimeStampBack(eventsForTheDay[j].split('<br>')[1]))/30.00;
+                var eventLength = Math.ceil(differenceBetweenTimeStamps(convertTimeStampBack(eventsForTheDay[j].split('<br>')[2]), 
+                                    convertTimeStampBack(eventsForTheDay[j].split('<br>')[1]))/zoomFactor);
 
                 // Write the event to the hourly display
                 if(compareTimeStamps(rowList[i].id, eventsForTheDay[j].split('<br>')[1]) || areTimeStampsEqual(rowList[i].id, eventsForTheDay[j].split('<br>')[1])) { 
@@ -475,6 +486,12 @@ function buildHourlyDisplay() {
     if(document.getElementsByClassName('eventInTimeSheet').length > 0) {
         document.getElementsByClassName('eventInTimeSheet')[0].parentNode.scrollIntoView(); // scroll the time sheet to the first event automatically
     }
+}
+
+
+/* Function to enable zooming on the time sheet */
+function zoom() {
+    
 }
 
 

@@ -203,6 +203,16 @@ async function eventRowClicked(e) {
     return;
   }
 
+  document.getElementById('Event_Title').value = event.Event_Title;
+  document.getElementById('Event_Description').value = event.Event_Description;
+  document.getElementById('Event_Start_Time').value = convertTimeStampBack(event.Event_Start_Time);
+  document.getElementById('Event_End_Time').value = convertTimeStampBack(event.Event_End_Time);
+  document.getElementById('Event_Date').value = convertDateStampBack(event.Event_Date);
+  document.getElementById('Event_Address').value = event.Address;
+  document.getElementById('Event_City').value = event.City;
+  document.getElementById('Event_State').value = event.State;
+  document.getElementById('Event_Zip').value = event.Zip;
+
   // Check-mark all users who were invited to the event in the user list
   let invites = await getInviteList(event.S_Key); // Get invites from db for the event
   if(invites.Count == 0) {
@@ -241,16 +251,6 @@ async function eventRowClicked(e) {
     checkAll = true;
     userCheckAllHeader.classList.add('userCheckAll');
   }
-
-  document.getElementById('Event_Title').value = event.Event_Title;
-  document.getElementById('Event_Description').value = event.Event_Description;
-  document.getElementById('Event_Start_Time').value = convertTimeStampBack(event.Event_Start_Time);
-  document.getElementById('Event_End_Time').value = convertTimeStampBack(event.Event_End_Time);
-  document.getElementById('Event_Date').value = convertDateStampBack(event.Event_Date);
-  document.getElementById('Event_Address').value = event.Address;
-  document.getElementById('Event_City').value = event.City;
-  document.getElementById('Event_State').value = event.State;
-  document.getElementById('Event_Zip').value = event.Zip;
 
   // Finally, fill in the message field with the message from the invites
   document.getElementById('Invite_Message').value = "--";
@@ -445,7 +445,9 @@ async function createNewEvent(modify) {
     // Now create the event invites for the event
     await createEventInvites();
     // Finally, display the newly created event as highlighted with it's invited users check marked
-    document.getElementsByClassName('selectedEventRow')[0].classList.remove('selectedEventRow');
+    if(document.getElementsByClassName('selectedEventRow')[0]) {
+      document.getElementsByClassName('selectedEventRow')[0].classList.remove('selectedEventRow');
+    }
     buildEventList();
     document.getElementsByName(b.Event_Title)[0].classList.add('selectedEventRow');
     document.getElementsByName(b.Event_Title)[0].scrollIntoView(); // scroll the time sheet to the new event automatically

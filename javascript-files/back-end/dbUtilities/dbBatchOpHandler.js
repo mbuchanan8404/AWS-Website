@@ -15,13 +15,13 @@
     arrays are arrays of Item collections, each with a max Count:25 or max size:16MB. */
    
 
-    /* Pages[Items:[x,x,x,...],Count:25, Items:[x,x,x,...],Count:12] */
+    /* Pages[{Items:[x,x,x,...],Count:25}, {Items:[x,x,x,...],Count:12}] */
    
 
     /* Before processing inside our system, paginated results from DynamoDB are
        depaginated back into a single item collection using the depaginator. The
        depaginator's implementation is hidden inside the implementation of the
-       paginator. */
+       scan paginator, query paginator, and batch get. */
 
 
 /*  Requirements
@@ -42,8 +42,8 @@ const AWS = require('aws-sdk');
 /* Update the Amazon Web Services DynamoDB access control credentials */
 AWS.config.update({
     region: "us-east-1",
-    accessKeyId: "",
-    secretAccessKey: ""
+    accessKeyId: "AKIATHORXF4C6Y2PW47I",
+    secretAccessKey: "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"
 });
 
 
@@ -139,8 +139,7 @@ async function performBatchWrite(batch) {
             try{
                 await new Promise(t => setTimeout(() => t(), expBackOff));
                 expBackOff = expBackOff * 2;
-                batchOp = result.UnprocessedItems;
-                result = await dynamoClient.batchWrite(batchOp).promise();
+                result = await dynamoClient.batchWrite(result.UnprocessedItems).promise();
             }catch(error) {
                 console.log(error);
             }
@@ -167,8 +166,7 @@ async function performBatchGet(batch) {
             try{
                 await new Promise(t => setTimeout(() => t(), expBackOff));
                 expBackOff = expBackOff * 2;
-                batchOp = result.UnprocessedKeys;
-                result = await dynamoClient.batchGet(batchOp).promise();
+                result = await dynamoClient.batchGet(result.UnprocessedKeys).promise();
                 finalResult.Items.push(...result.Responses[TABLE_NAME]);
             }catch(error) {
                 console.log(error);          
@@ -224,8 +222,8 @@ function dePaginator(pages) {
     var dePaginatedResults = {Items:[], Count:0}; // Create an empty items collection
     for(var page in pages) {
         dePaginatedResults.Items.push(...pages[page].Items); // add all the items in the page to our result
-        dePaginatedResults.Count = dePaginatedResults.Count + pages[page].Count; // increment the Count
-    }
+    } 
+    dePaginatedResults.Count = dePaginatedResults.Items.length;
     return dePaginatedResults; // return the reassembled items collection
 }
 

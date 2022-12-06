@@ -37,8 +37,8 @@ const AWS = require('aws-sdk');
 /* Update the Amazon Web Services DynamoDB access control credentials */
 AWS.config.update({
     region: "us-east-1",
-    accessKeyId: "",
-    secretAccessKey: ""
+    accessKeyId: "AKIATHORXF4C6Y2PW47I",
+    secretAccessKey: "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"
 });
 
 
